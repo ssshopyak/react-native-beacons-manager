@@ -1,18 +1,4 @@
-declare module 'react-native-beacons-manager' {
-
-  export interface BeaconRegion {
-    identifier: string,
-    uuid: string,
-    minor?: number,
-    major?: number
-  }
-
-  export type AuthorizationStatus =
-    | 'authorizedAlways'
-    | 'authorizedWhenInUse'
-    | 'denied'
-    | 'notDetermined'
-    | 'restricted';
+declare module '@rodrigo77777/react-native-beacons-manager' {
 
   class Beacons {
     ///////////////////////////////////////////////////////
@@ -105,7 +91,7 @@ declare module 'react-native-beacons-manager' {
     /** IOS ONLY */
     startRangingBeaconsInRegion(
       region: BeaconRegion
-    ): Promise<any>;
+    ): Promise<BeaconRangingResponse>;
 
     /** ANDROID ONLY */
     startRangingBeaconsInRegion(
@@ -114,13 +100,13 @@ declare module 'react-native-beacons-manager' {
         identifier: string,
         uuid?: string
       }
-    ): Promise<any>;
+    ): Promise<BeaconRangingResponse>;
 
     /** ANDROID ONLY */
     startRangingBeaconsInRegion(
       regionId: string,
       beaconsUUID?: string
-    ): Promise<any>;
+    ): Promise<BeaconRangingResponse>;
 
     stopMonitoringForRegion(
       region: BeaconRegion
@@ -153,4 +139,36 @@ declare module 'react-native-beacons-manager' {
 
   const beacons: Beacons;
   export default beacons;
+
+  declare namespace Beacons {
+    export interface BeaconRegion {
+      identifier: string,
+      uuid: string,
+      minor?: number,
+      major?: number
+    }
+
+    export type AuthorizationStatus =
+      | 'authorizedAlways'
+      | 'authorizedWhenInUse'
+      | 'denied'
+      | 'notDetermined'
+      | 'restricted';
+
+    export type Beacon = {
+      distance: number;
+      major: number;
+      minor: number;
+      proximity: 'immediate' | 'near' | 'far';
+      rssi: number;
+      uuid: string;
+    }
+
+    export type BeaconRangingResponse = {
+      beacons: Beacon[];
+      identifier: string;
+      uuid: string;
+    }
+
+  }
 }
