@@ -1,23 +1,3 @@
-[![npm](https://img.shields.io/npm/l/react-native-beacons-manager.svg)](https://github.com/MacKentoch/react-native-beacons-manager)
-[![npm](https://img.shields.io/npm/v/react-native-beacons-manager.svg)](https://www.npmjs.com/package/react-native-beacons-manager)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/react-native-beacons-manager/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
-
-# react-native-beacons-manager
-
-![logo](./images/RN-iBeacon.png)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMacKentoch%2Freact-native-beacons-manager.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMacKentoch%2Freact-native-beacons-manager?ref=badge_shield)
-
-`react-native-beacons-manager`: add beacon technology in your React Native application for both iOS and Android.
-
-This repository is born to keep alive and up to date these 3 original awesome:
-- [ibeacon for android](https://github.com/mmazzarolo/react-native-beacons-android)
-- [ibeacon for iOS](https://github.com/frostney/react-native-ibeacon)
-- [eddyStone for iOS](https://github.com/google/eddystone/blob/master/tools/ios-eddystone-scanner-sample)
-
-If you want to know more about just have a look at [my medium article](https://medium.com/@erwan.datin/mmazzarolohow-to-play-with-ibeacons-in-a-react-native-application-5cef754b2edc#.e2bvgplvy).
-
-If you want to test with a `simulated beacon`, there is a useful free application on `android`: [beaconsimulator](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator) and `MacOS`: [BeaconEmitter](https://github.com/lgaches/BeaconEmitter)
-
 ## Install (iOS and Android)
 
 > Ensure to have NodeJS >= v6.x.
@@ -33,14 +13,9 @@ If you want to test with a `simulated beacon`, there is a useful free applicatio
 
 
 ### 1. get modules
-*via npm:*
-```javascript:
-npm install react-native-beacons-manager
-```
-*or via yarn:*
-```javascript:
-yarn add react-native-beacons-manager
-```
+## Do this on your package.json
+ "dependencies": {
+    "@rodrigo77777/react-native-beacons-manager": "https://github.com/ssshopyak/react-native-beacons-manager",
 ### 2. link to your application
 
 ```javascript
@@ -86,7 +61,7 @@ import Beacons from 'react-native-beacons-manager'
 // (minor and major properties are numbers)
 const region = {
     identifier: 'Estimotes',
-    uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D'
+    uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D' // change to null if you need to scan in any region(all beacons)
 };
 
 // Request for authorization while the app is open
