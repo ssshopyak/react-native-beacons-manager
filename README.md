@@ -61,7 +61,7 @@ import Beacons from 'react-native-beacons-manager'
 // (minor and major properties are numbers)
 const region = {
     identifier: 'Estimotes',
-    uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D' // change to null if you need to scan in any region(all beacons)
+    uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D' // change to null if you need to scan in any region(all beacons) (in ios not working)
 };
 
 // Request for authorization while the app is open
